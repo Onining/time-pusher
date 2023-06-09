@@ -190,13 +190,13 @@ def tip():
     if (Whether_tip!=False):
         try:
             conn = http.client.HTTPSConnection('api.tianapi.com')  #接口域名
-            params = urllib.parse.urlencode({'key':tianxing_API1,'city':city,'type':1})
+            params = urllib.parse.urlencode({'key':tianxing_API1,'city':遂宁,'type':1})
             headers = {'Content-type':'application/x-www-form-urlencoded'}
             conn.request('POST','/tianqi/index',params,headers)
             res = conn.getresponse()
             data = res.read()
             data = json.loads(data)
-            pop = data["newslist"][0]["weather"]
+            pop = data["newslist"][0]["real"]
             tips = data["newslist"][0]["tips"]
             return pop,tips
         except:
